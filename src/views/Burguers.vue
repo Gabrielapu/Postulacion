@@ -14,7 +14,7 @@
           <td>{{burger.nombre}}</td>
           <td>{{burger.calorias}}</td>
           <td>
-            <button type="button" class="btn btn-info mr-2" @click="showDetails">Detalles</button>
+            <button type="button" class="btn btn-info mr-2" @click="showDetails($index)">Detalles</button>
             <button type="button" class="btn btn-danger" @click="deleteBurger($index)">Eliminar</button>
           </td>
         </tr>
@@ -39,16 +39,17 @@ export default {
     };
   },
   methods: {
-    showDetails() {},
+    showDetails(index) {},
     addBurger() {},
     editBurger() {},
     deleteBurger(index) {
-      this.burgers.splice(index, 1);
+      if (confirm("Estas seguro?")) {
+        this.burgers.splice(index, 1);
+      }
     },
   },
 };
 </script>
 
 <style>
-
 </style>
