@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h1>Listado de Hamburguesas</h1>
     <table class="table table-bordered grocery-crud-table table-hover">
       <thead>
@@ -25,12 +25,13 @@
 
 <script>
 export default {
-  name: "Burguers",
+  name: 'BurgerList',
+
   created() {
     this.$http
-      .get("https://prueba-hamburguesas.herokuapp.com/burguer")
-      .then((resp) => resp.json())
-      .then((data) => (this.burgers = data))
+      .get('https://prueba-hamburguesas.herokuapp.com/burguer')
+      .then(resp => resp.json())
+      .then(data => (this.burgers = data))
       .catch(console.log);
   },
   data() {
@@ -43,7 +44,7 @@ export default {
     addBurger() {},
     editBurger() {},
     deleteBurger(index) {
-      if (confirm("Estas seguro?")) {
+      if (confirm('Estas seguro?')) {
         this.burgers.splice(index, 1);
       }
     },
