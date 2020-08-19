@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+<div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <welcome-example :algo="unaVariable"></welcome-example>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  </div>
+</div>
 </template>
 
 <script>
@@ -15,15 +15,15 @@
 import WelcomeExample from '../components/WelcomeExample.vue';
 
 export default {
-  name: 'home',
-  components: {
-    // HelloWorld,
-    WelcomeExample,
-  },
-  data() {
-    return {
-      unaVariable: 'una cosa cualquiera',
-    };
-  },
+    name: 'home',
+    components: {
+        // HelloWorld,
+        WelcomeExample,
+    },
+    data() {
+        return {
+            unaVariable: 'una cosa cualquiera',
+        };
+    },
 };
 </script>

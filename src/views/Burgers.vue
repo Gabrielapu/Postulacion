@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+<div class="container">
     <BurgerList />
-  </div>
+</div>
 </template>
 
 <script>
@@ -11,10 +11,10 @@ import BurgerList from '../components/BurgerList.vue';
 import DeleteBurger from '../components/DeleteBurger.vue'; */
 
 export default {
-  name: 'Burgers',
-  components: {
-    BurgerList,
-  },
+    name: 'Burgers',
+    components: {
+        BurgerList,
+    },
 };
 </script>
 
