@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "EditBurguer",
+  name: 'EditBurguer',
   created() {
     // Obtengo los datos actuales y pre lleno los campos para editar
     this.id = this.$route.params.id;
@@ -48,16 +48,16 @@ export default {
   data() {
     return {
       // Propiedades necesarias para editar
-      id: "",
-      name: "",
-      calories: "",
+      id: '',
+      name: '',
+      calories: '',
       ingredients: [],
     };
   },
   methods: {
     crearIngrediente() {
       // Permite agregar un ingrediente al arreglo
-      this.ingredients.push("");
+      this.ingredients.push('');
     },
     eliminarIngrediente(index) {
       // Permite eliminar 1 elemento del arreglo
@@ -77,7 +77,7 @@ export default {
           obj
         )
         .then((e) => {
-          this.$router.push("/hamburguesas");
+          this.$router.push('/hamburguesas');
         })
         .catch(console.warn);
     },

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "BurgerDetails",
+  name: 'BurgerDetails',
   created() {
     // Obtener el id y despues guardar en propiedades los datos de la hamburguesa.
     const { id } = this.$route.params.id;
@@ -35,8 +35,8 @@ export default {
   data() {
     return {
       // Propiedades necesarias.
-      productName: "Cargando...",
-      calories: "",
+      productName: 'Cargando...',
+      calories: '',
       ingredients: [],
     };
   },

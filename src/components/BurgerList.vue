@@ -44,11 +44,11 @@
 
 <script>
 export default {
-  name: "BurgerList",
+  name: 'BurgerList',
   created() {
     // Llammar al endpoint y guardar la lista de hamburguesas
     this.$http
-      .get("https://prueba-hamburguesas.herokuapp.com/burguer")
+      .get('https://prueba-hamburguesas.herokuapp.com/burguer')
       .then((resp) => resp.json())
       .then((data) => (this.burgers = data))
       .catch(console.log);
@@ -57,7 +57,7 @@ export default {
     return {
       // Propiedades necesarias
       burgers: [],
-      nombreProducto: "",
+      nombreProducto: '',
       burger: {},
     };
   },

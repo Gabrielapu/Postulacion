@@ -31,19 +31,19 @@
 
 <script>
 export default {
-  name: "AddBurger",
+  name: 'AddBurger',
   data() {
     return {
       // Propiedades necesarias para agregar
-      name: "",
-      calories: "",
+      name: '',
+      calories: '',
       ingredients: [],
     };
   },
   methods: {
     crearIngrediente() {
       // Permite agregar un ingrediente al arreglo
-      this.ingredients.push("");
+      this.ingredients.push('');
     },
     eliminarIngrediente(index) {
       // Permite eliminar 1 elemento del arreglo
@@ -58,7 +58,7 @@ export default {
       };
       // Se agrega una hamburguesa
       this.$http
-        .post("https://prueba-hamburguesas.herokuapp.com/burguer", obj)
+        .post('https://prueba-hamburguesas.herokuapp.com/burguer', obj)
         .then((e) => {
           this.$router.push(`/hamburguesas`);
         })
