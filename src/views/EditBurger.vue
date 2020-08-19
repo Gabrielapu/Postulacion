@@ -1,12 +1,15 @@
+// eslint-disable-next-line
+/* eslint-disable */
+
 <template>
   <div class="container">
     <h1>Editar hamburguesa</h1>
       <div class="row mb-2">
         <div class="col">
-          <input type="text" v-model="name" class="form-control" placeholder="Nombre" />
+          <input type="text" v-model="name" class="form-control" placeholder="Nombre"/>
         </div>
         <div class="col">
-          <input type="text" v-model="calories" class="form-control" placeholder="Calorias" />
+          <input type="text" v-model="calories" class="form-control" placeholder="Calorias"/>
         </div>
       </div>
       <div class="row">
@@ -18,6 +21,7 @@
           v-model="ingredients[$index]"
           class="form-control mb-2"
           placeholder="Ingrediente"
+          required
         />
         <button class="btn btn-danger ml-2 mb-2" @click="eliminarIngrediente($index)">Quitar</button>
       </div>
@@ -28,7 +32,7 @@
 
 <script>
 export default {
-  name: 'EditBurguer',
+  name: "EditBurguer",
   created() {
     // Obtengo los datos actuales y pre lleno los campos para editar
     this.id = this.$route.params.id;
@@ -44,16 +48,16 @@ export default {
   data() {
     return {
       // Propiedades necesarias para editar
-      id: '',
-      name: '',
-      calories: '',
+      id: "",
+      name: "",
+      calories: "",
       ingredients: [],
     };
   },
   methods: {
     crearIngrediente() {
       // Permite agregar un ingrediente al arreglo
-      this.ingredients.push('');
+      this.ingredients.push("");
     },
     eliminarIngrediente(index) {
       // Permite eliminar 1 elemento del arreglo
@@ -67,14 +71,15 @@ export default {
         calorias: this.calories,
       };
       // Se ejecuta la actualización
-      this.$http.put(
-        `https://prueba-hamburguesas.herokuapp.com/burguer/${this.id}`,
-        obj
-      )
-      .then(e => {
-        this.$router.push('/hamburguesas');
-      })
-      .catch(console.warn)
+      this.$http
+        .put(
+          `https://prueba-hamburguesas.herokuapp.com/burguer/${this.id}`,
+          obj
+        )
+        .then((e) => {
+          this.$router.push("/hamburguesas");
+        })
+        .catch(console.warn);
     },
   },
 };

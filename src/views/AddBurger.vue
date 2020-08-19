@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+/* eslint-disable */
+
 <template>
   <div class="container">
     <h1>Agregar hamburguesa</h1>
@@ -28,7 +31,7 @@
 
 <script>
 export default {
-  name: 'AddBurger',
+  name: "AddBurger",
   data() {
     return {
       // Propiedades necesarias para agregar
@@ -54,20 +57,16 @@ export default {
         calorias: this.calories,
       };
       // Se agrega una hamburguesa
-      this.$http.post(
-        'https://prueba-hamburguesas.herokuapp.com/burguer',
-        obj
-      )
-      .then(e => {
-        this.$router.push(`/hamburguesas`);
-      })
-      .catch(console.warn)
+      this.$http
+        .post("https://prueba-hamburguesas.herokuapp.com/burguer", obj)
+        .then((e) => {
+          this.$router.push(`/hamburguesas`);
+        })
+        .catch(console.warn);
     },
   },
-
-}
+};
 </script>
 
 <style>
-
 </style>
