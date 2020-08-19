@@ -7,7 +7,7 @@
           <b-list-group-item v-for="(ingredient, $index) in ingredients" :key="$index">{{ingredient}}</b-list-group-item>
         </b-list-group>
       </b-card-text>
-       <router-link class="btn btn-success" to="/hamburguesas">Volver</router-link>
+      <router-link class="btn btn-success" to="/hamburguesas">Volver</router-link>
     </b-card>
   </div>
 </template>

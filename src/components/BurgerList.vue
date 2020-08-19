@@ -10,6 +10,7 @@
       cancel-variant="success"
       @ok="deleteBurguer()"
     >Seguro que desea eliminar {{this.nombreProducto}}?</b-modal>
+    <router-link class="btn btn-success" to="/hamburguesa/add">Agregar hamburguesa</router-link>
     <table class="table table-bordered table-hover mt-4">
       <thead>
         <tr>
@@ -64,9 +65,6 @@ export default {
     showDetails(id) {
       // Redireccion para ver detalles
       this.$router.push(`/hamburguesas/${id}`);
-    },
-    addBurger() {
-      // Se agrega una hamburguesa
     },
     editBurger(id) {
       // Redireccion para editar hamburguesa
