@@ -8,22 +8,21 @@
         </b-list-group>
       </b-card-text>
 
-      <button class="btn btn-light">
-        <router-link to="/hamburguesas">Volver</router-link>
-      </button>
+       <router-link class="btn btn-success" to="/hamburguesas">Volver</router-link>
+
     </b-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: "BurgerDetails",
+  name: 'BurgerDetails',
   created() {
     const id = this.$route.params.id;
     this.$http
       .get(`https://prueba-hamburguesas.herokuapp.com/burguer/${id}`)
-      .then((res) => res.body)
-      .then((response) => {
+      .then(res=> res.body)
+      .then(response => {
         this.productName = response.hamburguesa.nombre;
         this.ingredients = response.hamburguesa.ingredientes;
         this.calories = response.hamburguesa.calorias;
@@ -31,8 +30,8 @@ export default {
   },
   data() {
     return {
-      productName: "Cargando...",
-      calories: "",
+      productName: 'Cargando...',
+      calories: '',
       ingredients: [],
     };
   },

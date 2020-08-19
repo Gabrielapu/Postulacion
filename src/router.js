@@ -4,6 +4,7 @@ import Home from './views/Home.vue';
 
 import Burgers from './views/Burgers.vue';
 import BurgerDetails from './views/BurgerDetails.vue';
+import EditBurger from './views/EditBurger.vue';
 
 Vue.use(Router);
 
@@ -24,7 +25,7 @@ export default new Router({
             component: BurgerDetails,
         },
         {
-            path: '/hamburguesas/:id',
+            path: '/hamburguesas/delete/:id',
             name: 'hamburguesasEliminar',
             component: EditBurger,
         }

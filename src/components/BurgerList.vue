@@ -1,15 +1,16 @@
 <template>
   <div>
-    <h1>Listado de Hamburguesas</h1>
+    <h2>Listado de Hamburguesas</h2>
     <b-modal
       id="my-modal"
       title="Eliminar"
-      ok-title="Eliminar"
-      cancel-title="Cerrar"
+      ok-title="Si"
+      cancel-title="No"
       ok-variant="danger"
-      @ok="deleteOnModal()"
+      cancel-variant="success"
+      @ok="deleteBurguer()"
     >Seguro que desea eliminar {{this.nombreProducto}}?</b-modal>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover mt-4">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -24,11 +25,15 @@
           <td>
             <button
               type="button"
-              class="btn btn-info mr-2"
+              class="btn btn-info mr-2 mb-1"
               @click="showDetails(burger._id)"
             >Detalles</button>
-            <!--  <button type="button" class="btn btn-danger" @click="deleteBurger($index)">Eliminar</button> -->
-            <b-button v-b-modal.my-modal @click="deleteBurger(burger)">Eliminar</b-button>
+            <button
+              type="button"
+              class="btn btn-warning mr-2 mb-1"
+              @click="editBurger(burger._id)"
+            >Editar</button>
+            <b-button class="mb-1" variant="danger" v-b-modal.my-modal @click="openModal(burger)">Eliminar</b-button>
           </td>
         </tr>
       </tbody>
@@ -40,6 +45,7 @@
 export default {
   name: "BurgerList",
   created() {
+    // Llammar al endpoint y guardar la lista de hamburguesas
     this.$http
       .get("https://prueba-hamburguesas.herokuapp.com/burguer")
       .then((resp) => resp.json())
@@ -48,6 +54,7 @@ export default {
   },
   data() {
     return {
+      // Propiedades necesarias
       burgers: [],
       nombreProducto: "",
       burger: {},
@@ -55,22 +62,27 @@ export default {
   },
   methods: {
     showDetails(id) {
+      // Redireccion para ver detalles
       this.$router.push(`/hamburguesas/${id}`);
     },
     addBurger() {},
     editBurger(id) {
-      this.$router.push(`/hamburguesasEliminar/${id}`);
+      // Redireccion para editar hamburguesa
+      this.$router.push(`/hamburguesas/delete/${id}`);
     },
-    deleteBurger(burger) {
+    openModal(burger) {
+      // Guarda valores necesarios para usar en modal
       this.burger = burger;
       this.nombreProducto = burger.nombre;
     },
-    deleteOnModal() {
+    deleteBurguer() {
+      // Llama al endpoint y elimina la hamburguesa por ID.form-inline
       this.$http
         .delete(
           `https://prueba-hamburguesas.herokuapp.com/burguer/${this.burger._id}`
         )
         .then((rsp) => {
+          // Se elimina del arreglo
           const index = this.burgers.findIndex(
             (b) => b._id === this.burger._id
           );
