@@ -65,7 +65,9 @@ export default {
       // Redireccion para ver detalles
       this.$router.push(`/hamburguesas/${id}`);
     },
-    addBurger() {},
+    addBurger() {
+      // Se agrega una hamburguesa
+    },
     editBurger(id) {
       // Redireccion para editar hamburguesa
       this.$router.push(`/hamburguesas/delete/${id}`);

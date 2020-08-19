@@ -32,8 +32,8 @@
 export default {
   name: "EditBurguer",
   created() {
+    // Obtengo los datos actuales y pre lleno los campos para editar
     this.id = this.$route.params.id;
-
     this.$http
       .get(`https://prueba-hamburguesas.herokuapp.com/burguer/${this.id}`)
       .then((resp) => resp.body)
@@ -45,6 +45,7 @@ export default {
   },
   data() {
     return {
+      // Propiedades necesarias para editar
       id: "",
       name: "",
       calories: "",
@@ -53,18 +54,21 @@ export default {
   },
   methods: {
     crearIngrediente() {
+      // Permite agregar un ingrediente al arreglo
       this.ingredients.push("");
     },
     eliminarIngrediente(index) {
+      // Permite eliminar 1 elemento del arreglo
       this.ingredients.splice(index, 1);
     },
     updateBurger() {
+      // Objeto que contiene la informacion que se enviara mediante el endpoint
       const obj = {
         nombre: this.name,
         ingredientes: this.ingredients,
         calorias: this.calories,
       };
-
+      // Se ejecuta la actualización
       this.$http.put(
         `https://prueba-hamburguesas.herokuapp.com/burguer/${this.id}`,
         obj
