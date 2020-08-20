@@ -11,29 +11,29 @@ Vue.use(Router);
 
 export default new Router({
     routes: [{
-            path: '/',
-            name: 'home',
-            component: Home,
-        },
-        {
-            path: '/hamburguesas',
-            name: 'hamburguesas',
-            component: Burgers,
-        },
-        {
-            path: '/hamburguesas/:id',
-            name: 'hamburguesasDetalle',
-            component: BurgerDetails,
-        },
-        {
-            path: '/hamburguesas/delete/:id',
-            name: 'hamburguesasEliminar',
-            component: EditBurger,
-        },
-        {
-            path: '/hamburguesa/add',
-            name: 'hamburguesasAgregar',
-            component: AddBurger,
-        }
+        path: '/',
+        name: 'home',
+        component: Home,
+    },
+    {
+        path: '/hamburguesas',
+        name: 'hamburguesas',
+        component: Burgers,
+    },
+    {
+        path: '/hamburguesas/:id',
+        name: 'hamburguesasDetalle',
+        component: BurgerDetails,
+    },
+    {
+        path: '/hamburguesas/delete/:id',
+        name: 'hamburguesasEliminar',
+        component: EditBurger,
+    },
+    {
+        path: '/hamburguesa/add',
+        name: 'hamburguesasAgregar',
+        component: AddBurger,
+    }
     ],
 });

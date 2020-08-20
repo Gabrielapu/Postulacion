@@ -11,6 +11,7 @@
       @ok="deleteBurguer()"
     >Seguro que desea eliminar {{this.nombreProducto}}?</b-modal>
     <router-link class="btn btn-success" to="/hamburguesa/add">Agregar hamburguesa</router-link>
+    <div v-if="listEmpty">Se comieron todas las hamburguesas :(</div>
     <table class="table table-bordered table-hover mt-4">
       <thead>
         <tr>
@@ -51,7 +52,7 @@
 export default {
   name: 'BurgerList',
   created() {
-    // Llammar al endpoint y guardar la lista de hamburguesas
+    // Llamar al endpoint y guardar la lista de hamburguesas
     this.$http
       .get('https://prueba-hamburguesas.herokuapp.com/burguer')
       .then((resp) => resp.json())
@@ -88,6 +89,11 @@ export default {
           const index = this.burgers.findIndex((b) => b._id === this.burger._id);
           this.burgers.splice(index, 1);
         });
+    },
+  },
+  computed: {
+    listEmpty() {
+      return this.todos.length === 0;
     },
   },
 };
