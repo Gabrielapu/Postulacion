@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     listEmpty() {
-      return this.todos.length === 0;
+      return this.burgers.length === 0;
     },
   },
 };
