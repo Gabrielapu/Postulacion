@@ -11,39 +11,37 @@
 
 <script>
 export default {
-    name: 'WelcomeComponent',
-    props: ['algo'],
-    data() {
-        return {
-            saludo: '...Nada todavía',
-        };
+  name: 'WelcomeComponent',
+  props: ['algo'],
+  data() {
+    return {
+      saludo: '...Nada todavía',
+    };
+  },
+  methods: {
+    getWelcomeMessage() {
+      // Acá tienes un ejemplo de llamada http a la api
+      // puedes encontrar documentación para usar el cliente http de vue aquí:
+      // https://github.com/pagekit/vue-resource
+      this.$http.get('https://prueba-hamburguesas.herokuapp.com/test').then((response) => {
+        this.saludo = response.body;
+      });
     },
-    methods: {
-        getWelcomeMessage() {
-            // Acá tienes un ejemplo de llamada http a la api
-            // puedes encontrar documentación para usar el cliente http de vue aquí:
-            // https://github.com/pagekit/vue-resource
-            this.$http.get('https://prueba-hamburguesas.herokuapp.com/test').then(
-                (response) => {
-                    this.saludo = response.body;
-                }
-            );
-        },
-    },
-    created() {
-        this.getWelcomeMessage();
-    },
+  },
+  created() {
+    this.getWelcomeMessage();
+  },
 };
 </script>
 
 <style lang="scss">
 .welcome-component {
-    padding: 10px;
-    border: black 2px solid;
+  padding: 10px;
+  border: black 2px solid;
 
-    .hi {
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
+  .hi {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 }
 </style>
